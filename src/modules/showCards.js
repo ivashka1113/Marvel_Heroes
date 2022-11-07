@@ -1,7 +1,7 @@
 "use strict";
 
 const showCards = (data) => {
-    const main = document.querySelector("main")
+    const main = document.querySelector("main");
     data.forEach((card) => {
         let div = document.createElement("div");
         div.classList.add("card")
@@ -10,18 +10,19 @@ const showCards = (data) => {
         <div class="card-info">
             <div class= "card-title">
                 <h2 class="card-title-text">${card.name}</h2>
-                <img src="./images/${card.gender}.svg"></img>
+                <img class="gender-img" src="./images/${card.gender}.svg"></img>
             </div>
-        <div class="card-desc">
-            <span>${card.status}</span>
-            &nbsp;-&nbsp;
-            <span>${species}</span>
-            <p>Real name - ${card.realName}</p>
-            <p>Species   - ${card.species}</p>
-            <p>Citizenship - ${card.citizenship}</p>
-            <p>Actors - ${card.actors}</p>
-            <p>Real name - ${card.realName}</p>
-        </div>
+            <div class="card-desc">
+            <div class="status-species">
+                <span>${card.status}</span>
+                &nbsp;-&nbsp;
+                <span>${card.species}</span>
+            </div>
+                <p>Real name - ${card.realName === undefined ? "unknown" : card.realName}</p>
+                <p>Species - ${card.species}</p>
+                <p>Citizenship - ${card.citizenship === undefined ? "unknown" : card.citizenship}</p>
+                <p>Actors - ${card.actors}</p>
+            </div>
         </div>`
         main.append(div);
     });

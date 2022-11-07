@@ -1,7 +1,7 @@
 "use strict";
 
 const getHeroes = (url) => {
-    fetch(url, {
+    return fetch(url, {
             method: "GET",
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
@@ -10,5 +10,7 @@ const getHeroes = (url) => {
         .then(response => response.json())
         .catch(error => console.log(error));
 }
+
+
 
 export default getHeroes;

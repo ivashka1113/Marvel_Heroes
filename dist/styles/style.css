@@ -1,5 +1,13 @@
 body {
     background-image: url("../images/marvel-bg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Rubik;
+    text-transform: capitalize;
+}
+
+svg {
+    fill: red;
 }
 
 header {
@@ -40,11 +48,12 @@ header {
     transition: border-color 0.3s ease 0s;
     font-size: 16px;
     font-weight: 700;
+    border-radius: 10px;
 }
 
 .input-search {
     position: relative;
-    background: rgb(231, 88, 11);
+    background: rgb(195, 35, 20);
     border-radius: 7px;
     margin-bottom: 20px;
     width: 100%;
@@ -67,6 +76,10 @@ header {
     transition: border-color 0.3s ease 0s;
 }
 
+.display-none {
+    display: none;
+}
+
 .input-search>input:hover {
     border: 1px solid red;
 }
@@ -79,11 +92,11 @@ header {
     color: rgb(47, 47, 47);
     font-size: 18px;
     font-weight: bold;
-    display: none;
+    z-index: 1;
     position: absolute;
     top: 0px;
     right: 0px;
-    background: rgb(131, 191, 70);
+    background: rgb(253, 25, 0);
     border-radius: 0px 7px 7px 0px;
 }
 
@@ -127,7 +140,7 @@ header {
 
 .select:focus {
     border-color: #aaa;
-    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+    box-shadow: 0 0 1px 3px rgba(246, 58, 1, 0.7);
     box-shadow: 0 0 0 3px -moz-mac-focusring;
     color: #222;
     outline: none;
@@ -178,19 +191,24 @@ main {
     margin-left: 10px;
     display: flex;
     flex-direction: column;
-    color: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0.596);
 }
 
 .card:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
+    cursor: pointer;
 }
 
 .card:hover>.card-title {
     color: red;
 }
 
+.gender-img {
+    width: 20px;
+}
+
 .card-img {
-    max-width: 200px;
+    width: 150px;
     border-radius: 10px 0px 0px 10px;
 }
 
@@ -199,6 +217,7 @@ main {
     -webkit-box-align: center;
     align-items: center;
     margin-bottom: 10px;
+    color: white;
 }
 
 .card-title-text {
@@ -214,4 +233,14 @@ main {
 .card-desc {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    height: 80%;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+.status-species {
+    font-size: 18px;
+    padding-bottom: 10px;
+    color: white
 }

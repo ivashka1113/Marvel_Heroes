@@ -11,6 +11,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicons/favicon-16x16.png">
     <link rel="manifest" href="./images/favicons/site.webmanifest">
     <link rel="mask-icon" href="./images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/style.css">
     <meta name="msapplication-TileColor" content="#da532c">
@@ -22,36 +25,37 @@
         <img src="./images/logo.png" alt="Marvel" class="header-logo">
         <form class="form">
             <div class="form-search">
-                <button type="button" class="type-search">Имя</button>
+                <button type="button" class="type-search">Name</button>
                 <div class="input-search">
-                    <input name="name" placeholder="Поиск по имени">
-                    <button type="submit" class="search-btn"></button>
+                    <input class="name-input" name="name" placeholder="Search by name...">
+                    <input class="display-none real-name-input" name="real-name" placeholder="Search by real name...">
+                    <button type="submit" class="search-btn">Go</button>
                 </div>
             </div>
             <div class="selects">
                 <select name="species" class="select selec-species">
-                    <option value="">Все расы</option>
-                    <option value="human">Человек</option>
-                    <option value="Celestial">Целестиал</option>
-                    <option value="Zehoberei">Зехоберианин</option>
-                    <option value="flora colossus">Природный колосс</option>
-                    <option value="Asgardian">Асгардец</option>
-                    <option value="kronan">Кронанец</option>
-                    <option value="Frost Giant">Ледяной гигант</option>
-                    <option value="Titan">Титан</option>
-                    <option value="Android">Андроид</option>
-                    <option value="Centaurian">Центурианин</option>
+                    <option value="">All species</option>
+                    <option value="human">Human</option>
+                    <option value="Celestial">Celestial</option>
+                    <option value="Zehoberei">Zehoberei</option>
+                    <option value="flora colossus">flora colossus</option>
+                    <option value="Asgardian">Asgardian</option>
+                    <option value="kronan">kronan</option>
+                    <option value="Frost Giant">Frost Giant</option>
+                    <option value="Titan">Titan</option>
+                    <option value="Android">Android</option>
+                    <option value="Centaurian">Centaurian</option>
                 </select>
                 <select name="gender" class="select selec-gender">
-                    <option value="">Все пола</option>
-                    <option value="male">Мужчина</option>
-                    <option value="female">Женщина</option>
+                    <option value="">All genders</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
                 </select>
                 <select name="status" class="select selec-status">
-                    <option value="">Все статусы</option>
-                    <option value="deceased">Мёртв</option>
-                    <option value="alive">Жив</option>
-                    <option value="unknown">Неизвестен</option>
+                    <option value="">Status</option>
+                    <option value="deceased">Deceased</option>
+                    <option value="alive">Alive</option>
+                    <option value="unknown">Unknown</option>
                 </select>
             </div>
         </form>
