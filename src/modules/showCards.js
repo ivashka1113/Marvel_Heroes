@@ -16,7 +16,7 @@ const showCards = (data) => {
             <div class="status-species">
                 <span>${card.status}</span>
                 &nbsp;-&nbsp;
-                <span>${card.species}</span>
+                <span>${card.species === undefined ? "unknown" : card.species}</span>
             </div>
                 <p>Real name - ${card.realName === undefined ? "unknown" : card.realName}</p>
                 <p>Species - ${card.species}</p>
