@@ -2,6 +2,14 @@
 
 const showCards = (data) => {
     const main = document.querySelector("main");
+
+    if (data.length === 0) {
+        main.innerHTML = `<span class = "no-results">"Sorry, your search did not match any results."</span>`;
+        return;
+    } else {
+        main.innerHTML = "";
+    }
+
     data.forEach((card) => {
         let div = document.createElement("div");
         div.classList.add("card")

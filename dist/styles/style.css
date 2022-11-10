@@ -1,9 +1,10 @@
 body {
-    background-image: url("../images/marvel-bg.jpg");
+    background-image: url("../images/marvel-bg1.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: Rubik;
     text-transform: capitalize;
+    background-size: cover;
 }
 
 svg {

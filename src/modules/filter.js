@@ -2,60 +2,45 @@
 
 const filter = (data) => {
     const header = document.querySelector("header");
-    const typeSearch = header.querySelector(".type-search");
-    const inputName = header.querySelector(".name-input");
-    const inputRealName = header.querySelector(".real-name-input");
-    const seletSpecies = header.querySelector(".selec-species");
-    const selectGenders = header.querySelector(".select-gender");
-    const selectStatus = header.querySelector(".select-status");
-    const searchBtn = header.querySelector(".search-btn");
-    const main = document.querySelector("main");
-    const cards = main.querySelectorAll(".card");
-    const noResault = main.querySelector("span")
-    let allCardsDisplayNone = 0;
+    const form = header.querySelector(".form")
+    const filterCards = [];
+    const formBody = {};
 
 
-    typeSearch.addEventListener("click", () => {
-        if (typeSearch.textContent === "Name") {
-            typeSearch.textContent = "Real name";
-            inputName.value = "";
-        } else {
-            typeSearch.textContent = "Name";
-            inputRealName.value = "";
-        }
-        inputName.classList.toggle("display-none");
-        inputRealName.classList.toggle("display-none");
+    const formData = new FormData(form);
+
+    formData.forEach((val, key) => {
+        formBody[key] = val;
     })
 
-    searchBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const characteristics = [inputName.value, inputRealName.value, seletSpecies.value, selectGenders.value, selectStatus.value]
-        data.forEach((card, index) => {
-            const cardCharacteristics = [card.name, card.realName === undefined ? "" : card.realName, card.species === undefined ? "" : card.species, card.gender, card.status === undefined ? "unknown" : card.status]
-            for (let i = 0; i < characteristics.length; i++) {
-                // if (i <= 2) {
-                //     if ((cardCharacteristics[i] === characteristics[i]) || (characteristics[i] === "")) {
-                //         cards[index].style.display = "flex";
-                //     }
-                if ((cardCharacteristics[i] === characteristics[i]) || (characteristics[i] === "")) {
-                    cards[index].style.display = "flex";
-                } else {
-                    cards[index].style.display = "none";
-                    return
+    data.forEach((card) => {
+        let success = true;
+
+        const cardCharacteristics = {
+            "name": card.name,
+            "real-name": card.realName === undefined ? "" : card.realName,
+            "species": card.species === undefined ? "" : card.species,
+            "gender": card.gender,
+            "status": card.status === undefined ? "unknown" : card.status
+        }
+
+        for (let key in cardCharacteristics) {
+            if ((key === "name" || key === "real-name") && formBody[key] !== "") {
+                if (!(cardCharacteristics[key].toLowerCase().match(formBody[key].toLowerCase()))) {
+                    success = false;
+                    continue;
                 }
-            }
-        })
+            } else if ((cardCharacteristics[key] !== formBody[key]) && (formBody[key] !== "")) {
+                success = false;
+                return;
+            };
 
-        cards.forEach((card) => {
-            if (card.style.display === "none") allCardsDisplayNone++;
-        })
-        if (allCardsDisplayNone === cards.length) {
-            noResault.classList.remove("display-none");
-        } else if (allCardsDisplayNone < cards.length) {
-            noResault.classList.add("display-none");
+
         }
-        allCardsDisplayNone = 0;
+        if (success) filterCards.push(card);
     })
+    return filterCards;
 }
+
 
 export default filter;
