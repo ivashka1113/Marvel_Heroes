@@ -34,11 +34,17 @@ const filter = (data) => {
                 success = false;
                 return;
             };
-
-
         }
         if (success) filterCards.push(card);
     })
+
+    filterCards.forEach((card) => {
+        console.log("Слушатель добавлен")
+        card.addEventListener("click", () => {
+            popupCard(card);
+        })
+    })
+
     return filterCards;
 }
 

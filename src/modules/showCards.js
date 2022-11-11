@@ -1,8 +1,9 @@
 "use strict";
 
+import popupCard from "./popupCard.js";
+
 const showCards = (data) => {
     const main = document.querySelector("main");
-
     if (data.length === 0) {
         main.innerHTML = `<span class = "no-results">"Sorry, your search did not match any results."</span>`;
         return;
@@ -18,7 +19,7 @@ const showCards = (data) => {
         <div class="card-info">
             <div class= "card-title">
                 <h2 class="card-title-text">${card.name}</h2>
-                <img class="gender-img" src="./images/${card.gender}.svg"></img>
+                <img class="gender-img" src="./images/${card.gender}.svg">
             </div>
             <div class="card-desc">
             <div class="status-species">
@@ -27,13 +28,25 @@ const showCards = (data) => {
                 <span>${card.species === undefined ? "unknown" : card.species}</span>
             </div>
                 <p>Real name - ${card.realName === undefined ? "unknown" : card.realName}</p>
-                <p>Species - ${card.species}</p>
                 <p>Citizenship - ${card.citizenship === undefined ? "unknown" : card.citizenship}</p>
                 <p>Actors - ${card.actors}</p>
+                <p></p>
             </div>
         </div>`
         main.append(div);
     });
+
+    main.addEventListener("click", (e) => {
+        if (e.target.closest(".card")) {
+            const cardName = e.target.closest(".card").querySelector(".card-title-text").textContent;
+            let selectCard;
+            data.forEach((card) => {
+                if (card.name.toLowerCase() === cardName.toLowerCase()) selectCard = card;
+            })
+            popupCard(selectCard)
+        }
+    })
+
 }
 
 export default showCards;
