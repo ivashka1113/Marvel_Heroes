@@ -35,9 +35,11 @@ const filter = (data) => {
                 return;
             };
         }
+
         if (success) filterCards.push(card);
+
     })
-    console.log(filterCards)
+
     return filterCards;
 }
 

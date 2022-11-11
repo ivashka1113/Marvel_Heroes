@@ -12,7 +12,8 @@ const showCards = (data) => {
 
     data.forEach((card) => {
         let div = document.createElement("div");
-        div.classList.add("card")
+        div.classList.add("card");
+
         div.innerHTML = `
         <img class="card-img" src="${card.photo}">
         <div class="card-info">
@@ -29,9 +30,9 @@ const showCards = (data) => {
                 <p>Real name - ${card.realName === undefined ? "unknown" : card.realName}</p>
                 <p>Citizenship - ${card.citizenship === undefined ? "unknown" : card.citizenship}</p>
                 <p>Actors - ${card.actors}</p>
-                <p></p>
             </div>
         </div>`
+
         main.append(div);
     });
 

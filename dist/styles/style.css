@@ -272,11 +272,11 @@ main {
     width: 40%;
     margin: calc(10vh - 20px) auto 0px;
     height: auto;
-    max-height: 90vh;
+    max-height: 70vh;
     background: rgb(38, 55, 80);
     border-radius: 15px;
     padding: 20px 40px;
-    border: 2px solid rgb(131, 191, 70);
+    border: 2px solid rgb(225, 13, 9);
     overflow: auto;
 }
 
@@ -297,17 +297,7 @@ main {
     justify-content: center;
     -webkit-box-align: center;
     align-items: center;
-    background: rgba(131, 191, 70, 0.667);
-}
-
-.popup-close-btn::after {
-    right: 4.5px;
-    transform: rotate(45deg);
-}
-
-.popup-close-btn::before {
-    left: 4.5px;
-    transform: rotate(-45deg);
+    background: rgba(218, 15, 69, 0.667);
 }
 
 .popup-img {
@@ -319,11 +309,17 @@ main {
     object-fit: cover;
 }
 
+.popup-close-btn-img {
+    width: 50%;
+}
+
 .popup-title {
     font-size: 22px;
     -webkit-box-pack: center;
     justify-content: center;
     margin-top: 30px;
+    display: flex;
+    margin-bottom: 20px;
 }
 
 .popup-title-text {
@@ -340,17 +336,34 @@ main {
     font-size: 20px;
     -webkit-box-pack: center;
     justify-content: center;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.popup-card-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 2;
+    word-spacing: 7px;
 }
 
 .films-participated {
     color: rgb(204, 204, 204);
     font-size: 16px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .films {
     flex-direction: column;
     display: grid;
-    grid-auto-flow: column;
+    justify-items: center;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(21, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 15px 15px;
+    word-spacing: 5px;
+    font-size: 17px;
 }
