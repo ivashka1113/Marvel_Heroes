@@ -29,6 +29,7 @@ const popupCard = (card) => {
         <span class = "films-participated">Participated in fimls:</span>
         <div class = "films">${card.movies}</div>
     </div>`
+
     popup.addEventListener("click", (e) => {
         if (!(e.target.closest(".popup")) || e.target.closest(".popup-close-btn")) {
             popup.remove();

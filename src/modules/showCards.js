@@ -1,9 +1,8 @@
 "use strict";
 
-import popupCard from "./popupCard.js";
-
 const showCards = (data) => {
     const main = document.querySelector("main");
+
     if (data.length === 0) {
         main.innerHTML = `<span class = "no-results">"Sorry, your search did not match any results."</span>`;
         return;
@@ -35,17 +34,6 @@ const showCards = (data) => {
         </div>`
         main.append(div);
     });
-
-    main.addEventListener("click", (e) => {
-        if (e.target.closest(".card")) {
-            const cardName = e.target.closest(".card").querySelector(".card-title-text").textContent;
-            let selectCard;
-            data.forEach((card) => {
-                if (card.name.toLowerCase() === cardName.toLowerCase()) selectCard = card;
-            })
-            popupCard(selectCard)
-        }
-    })
 
 }
 

@@ -1,11 +1,11 @@
 "use strict";
 
+
 const filter = (data) => {
     const header = document.querySelector("header");
     const form = header.querySelector(".form")
     const filterCards = [];
     const formBody = {};
-
 
     const formData = new FormData(form);
 
@@ -37,14 +37,7 @@ const filter = (data) => {
         }
         if (success) filterCards.push(card);
     })
-
-    filterCards.forEach((card) => {
-        console.log("Слушатель добавлен")
-        card.addEventListener("click", () => {
-            popupCard(card);
-        })
-    })
-
+    console.log(filterCards)
     return filterCards;
 }
 
